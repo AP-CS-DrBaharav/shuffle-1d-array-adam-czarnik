@@ -21,6 +21,9 @@ public class Shuffle1D {
 
         // TODO 1
         // Your code here: Fill in the Array with values 0 to N-1
+        for (int ii=0;ii<N;++ii) {
+            A[ii] = ii;
+        }
         
         numsCalled = 0;
     }
@@ -37,9 +40,16 @@ public class Shuffle1D {
         
         // TODO 2
         // Your code here: See the requirements above the function
-        
-        return 0 ;
-
+        int min = 0;
+        int max = N-numsCalled-1;
+        int nn = (int) ( Math.random()*(max-min+1)) + min;
+        if (numsCalled >= N) return 0;
+        int val = A[nn];
+        for (int i=nn; i<A.length-numsCalled-1; ++i) {
+            A[i] = A[i+1];
+        }
+        numsCalled += 1;
+        return val;
     }
      
 }
